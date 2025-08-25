@@ -1,14 +1,12 @@
 FROM python:3.9-alpine
 
-WORKDIR /app
+WORKDIR /python_app
 
 # Install dependencies
-COPY requirements.txt .
-RUN pip install -r requirements.txt
+RUN pip install Flask==2.3.3 PyMySQL==1.1.0
 
 # Copy application files
-COPY app.py .
-COPY templates/ templates/
+COPY python_app/app.py .
 
 EXPOSE 8080
 

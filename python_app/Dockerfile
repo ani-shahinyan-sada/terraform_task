@@ -6,7 +6,7 @@ WORKDIR /python_app
 RUN pip install Flask==2.3.3 PyMySQL==1.1.0
 
 # Copy application files
-COPY python_app/app.py .
+COPY app.py .
 
 EXPOSE 8080
 

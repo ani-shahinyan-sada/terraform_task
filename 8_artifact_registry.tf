@@ -6,4 +6,10 @@ module "artifact_registry" {
   location      = var.region          
   format        = "DOCKER"
   repository_id = var.repo_name       
+  cleanup_policies = {
+    most_recent_versions = {
+      keep_count = 3
+    }
+  }
 }
+#add cleanup: done

@@ -48,3 +48,8 @@ variable "lb_name"{
 variable "service_account_email"{
   description = "service account for tasks"
 }
+
+variable "instance_tier" {
+  type        = string
+  description = " Tier of the DB Instance"
+}

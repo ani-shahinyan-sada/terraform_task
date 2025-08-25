@@ -42,3 +42,13 @@ def get_random_value():
 if __name__ == '__main__':
     port = int(os.environ.get('PORT', 8080))
     app.run(host='0.0.0.0', port=port)
+
+
+#this part must be here because we are connecting via a google managed certificate 
+conn = pymysql.connect(
+    host='10.28.0.2',                    # Your database private IP
+    user='default',
+    password='your_password',
+    database='default',
+    ssl={'ssl_disabled': False}          # This enables SSL using Google's certs
+)

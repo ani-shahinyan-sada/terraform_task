@@ -14,7 +14,7 @@ module "cloud_run" {
     }
   ]
 }
-
+# remove the connector and make it an egress 
 resource "google_vpc_access_connector" "connector" {
   name          = "vpc-connector"
   subnet {

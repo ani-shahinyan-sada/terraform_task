@@ -1,4 +1,4 @@
-module "cloud_run"{
+module "cloud_run" {
   source                = "GoogleCloudPlatform/cloud-run/google"
   version               = "~> 0.9"
   service_name          = var.network_name

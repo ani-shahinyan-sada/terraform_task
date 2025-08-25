@@ -54,7 +54,7 @@ variable "instance_tier" {
   description = " Tier of the DB Instance"
 }
 
-variable "service_port_name"{
+variable "service_port_name" {
   description = "the name of the service port"
-  
+
 }

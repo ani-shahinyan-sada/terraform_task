@@ -1,18 +1,18 @@
 module "lb-http" {
-  source            = "GoogleCloudPlatform/lb-http/google//modules/serverless_negs"
-  version           = "~> 12.0"
-  project           = var.service_project_id
-  name              = "http lb for app"
-  ssl                             = true
+  source  = "GoogleCloudPlatform/lb-http/google//modules/serverless_negs"
+  version = "~> 12.0"
+  project = var.service_project_id
+  name    = "http lb for app"
+  ssl     = true
   backends = {
     default = {
-      protocol                        = "HTTP"
-      port_name                       = var.service_port_name
-      enable_cdn                      = false
+      protocol   = "HTTP"
+      port_name  = var.service_port_name
+      enable_cdn = false
 
 
       log_config = {
-        enable = true
+        enable      = true
         sample_rate = 1.0
       }
 
@@ -23,7 +23,7 @@ module "lb-http" {
       ]
 
       iap_config = {
-        enable               = false
+        enable = false
       }
     }
   }

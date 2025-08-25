@@ -18,38 +18,43 @@ variable "region" {}
 
 variable "zone" {}
 
-variable "lb_ip_range"{}
+variable "lb_ip_range" {}
 
 
-variable "ssl_cert"{
+variable "ssl_cert" {
   description = "the id of the service account in service project"
 }
 
-variable "network_name"{
+variable "network_name" {
   description = "the name of the vpc network"
 }
 
-variable "host_ip_range"{
+variable "host_ip_range" {
   description = "host cidr range"
 }
 
-variable "service_ip_range"{
+variable "service_ip_range" {
   description = "service cidr range"
 }
 
-variable "repo_name"{
+variable "repo_name" {
   description = "registry repo name"
 }
 
-variable "lb_name"{
+variable "lb_name" {
   description = "load balancer name"
 }
 
-variable "service_account_email"{
+variable "service_account_email" {
   description = "service account for tasks"
 }
 
 variable "instance_tier" {
   type        = string
   description = " Tier of the DB Instance"
+}
+
+variable "service_port_name"{
+  description = "the name of the service port"
+  
 }

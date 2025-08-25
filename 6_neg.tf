@@ -1,12 +1,9 @@
-resource "google_compute_region_network_endpoint_group" "serverless_neg" {
-  project               = var.service_project_id
-  name                  = "${var.network_name}-neg"
+resource "google_compute_region_network_endpoint_group" "neg" {
+  name                  = "cloudrunneg"
   network_endpoint_type = "SERVERLESS"
   region                = var.region
-
+  project = var.service_project_id
   cloud_run {
-    service = var.network_name  
+    service = module.cloud_run.service_name
   }
-
-  depends_on = [module.cloud_run]
 }

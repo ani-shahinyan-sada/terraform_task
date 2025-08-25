@@ -4,12 +4,12 @@ module "firewall_rules" {
   network_name = module.vpc.network_name
 
   rules = [{
-    name                    = "allow-tcp-ingress"
-    direction               = "INGRESS"
-    priority                = 1000
-    destination_ranges      = var.host_ip_range
+    name               = "allow-tcp-ingress"
+    direction          = "INGRESS"
+    priority           = 1000
+    destination_ranges = var.host_ip_range
     #source_ranges           = ["0.0.0.0/0"]
-    source_service_accounts = var.service_account_email
+    source_service_accounts = [var.service_account_email]
     target_tags             = null
     target_service_accounts = null
     allow = [{
@@ -20,6 +20,6 @@ module "firewall_rules" {
     log_config = {
       metadata = "INCLUDE_ALL_METADATA"
     }
-  }
+    }
   ]
 }

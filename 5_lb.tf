@@ -1,21 +1,30 @@
-module "gce-lb-http" {
-  source  = "GoogleCloudPlatform/lb-http/google"
-  version = "~> 9.0"
-  project = var.service_project_id
-  name    = "db-http-lb"
-  # target_tags       = [module.mig1.target_tags, module.mig2.target_tags] bring back when configuring health checks (yete jogem vonc)
+module "lb-http" {
+  source            = "GoogleCloudPlatform/lb-http/google//modules/serverless_negs"
+  version           = "~> 12.0"
+  project           = var.service_project_id
+  name              = "http lb for app"
+  ssl                             = true
   backends = {
     default = {
-      protocol    = "HTTPS"
-      timeout_sec = 20
-      enable_cdn  = false
+      protocol                        = "HTTP"
+      port_name                       = var.service_port_name
+      enable_cdn                      = false
+
+
+      log_config = {
+        enable = true
+        sample_rate = 1.0
+      }
 
       groups = [
         {
-          # Each node pool instance group should be added to the backend.
-          group = google_compute_region_network_endpoint_group.serverless_neg.id
-        },
+          group = google_compute_region_network_endpoint_group.neg.id
+        }
       ]
+
+      iap_config = {
+        enable               = false
+      }
     }
   }
 }

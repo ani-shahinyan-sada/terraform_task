@@ -4,6 +4,6 @@ resource "google_compute_region_network_endpoint_group" "neg" {
   region                = var.region
   project               = var.service_project_id
   cloud_run {
-    service = module.cloud_run.service_name
+    service = google_cloud_run_v2_service.default.name
   }
 }

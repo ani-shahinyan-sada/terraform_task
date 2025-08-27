@@ -20,7 +20,9 @@ variable "zone" {}
 
 variable "lb_ip_range" {}
 
-
+variable "image" {
+  description = "the image used in cloudrun"
+}
 variable "ssl_cert" {
   description = "the id of the service account in service project"
 }

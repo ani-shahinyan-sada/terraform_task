@@ -18,11 +18,6 @@ module "vpc" {
       subnet_name   = "subnet-02"
       subnet_ip     = var.service_ip_range
       subnet_region = var.region
-    },
-    {
-      subnet_name   = "vpc-connector-subnet"
-      subnet_ip     = "10.8.0.0/28"
-      subnet_region = var.region
     }
   ]
 }

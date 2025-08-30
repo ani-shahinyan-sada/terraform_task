@@ -2,7 +2,7 @@ module "lb-http" {
   source  = "GoogleCloudPlatform/lb-http/google//modules/serverless_negs"
   version = "~> 12.0"
   project = var.service_project_id
-  name    = "http lb for app"
+  name    = "httplbforapp"
   ssl     = true
   backends = {
     default = {

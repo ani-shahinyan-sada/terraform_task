@@ -3,5 +3,5 @@ options:
 
 steps:
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['build', '-t', 'us-west1-docker.pkg.dev/ani-proj-2/terraform-task/app:latest', '.']
+  args: ['build', '-t', 'us-west1-docker.pkg.dev/ani-proj-2/ani/app:latest', '.']
   dir: 'python_app'

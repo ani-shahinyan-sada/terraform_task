@@ -2,7 +2,7 @@ module "mysql-db" {
   source              = "terraform-google-modules/sql-db/google//modules/mysql"
   version             = "~> 26.1"
   name                = var.db_name
-  database_version    = "MYSQL_8"
+  database_version    = "MYSQL_8_0"
   project_id          = var.service_project_id
   zone                = var.zone
   region              = var.region
@@ -16,5 +16,4 @@ module "mysql-db" {
     allocated_ip_range = google_compute_global_address.private_ip_address.name
   }
 
-  depends_on = [google_service_networking_connection.private_vpc_connection]
 }

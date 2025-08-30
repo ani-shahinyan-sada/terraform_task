@@ -10,11 +10,9 @@ module "firewall_rules" {
     destination_ranges = var.host_ip_range
     #source_ranges           = ["0.0.0.0/0"]
     source_service_accounts = [var.service_account_email]
-    target_tags             = null
-    target_service_accounts = null
     allow = [{
       protocol = "tcp"
-      ports    = ["22, 3306"]
+      ports    = [22 , 3306]
     }]
     deny = []
     log_config = {

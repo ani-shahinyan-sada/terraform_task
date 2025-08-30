@@ -13,7 +13,7 @@ module "mysql-db" {
     ipv4_enabled       = false
     private_network    = module.vpc.network_self_link
     ssl_mode           = "ALLOW_UNENCRYPTED_AND_ENCRYPTED"
-    allocated_ip_range = google_compute_global_address.private_ip_address.name
+    # allocated_ip_range = google_compute_global_address.private_ip_address.name
   }
-
+  depends_on = [module.private_service_connect]
 }

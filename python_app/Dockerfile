@@ -7,7 +7,6 @@ RUN pip install Flask==2.3.3 PyMySQL==1.1.0
 
 # Copy application files
 COPY app.py .
-COPY templates/ templates/
 
 EXPOSE 8080
 

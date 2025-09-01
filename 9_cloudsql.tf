@@ -16,4 +16,5 @@ module "mysql-db" {
     # allocated_ip_range = google_compute_global_address.private_ip_address.name
   }
   depends_on = [module.private_service_connect]
+
 }

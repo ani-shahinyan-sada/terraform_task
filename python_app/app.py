@@ -17,7 +17,7 @@ def get_db_connection():
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    return '<h1>Hello from Cloud Run!</h1><p>Database connection working!</p>'
 
 @app.route('/api/random-value')
 def get_random_value():

@@ -1,13 +1,25 @@
+resource "google_compute_ssl_certificate" "default" {
+  name        = "cloud-run-self-signed-cert"
+  project     = var.service_project_id
+  private_key = file("private-key.pem")
+  certificate = file("certificate.pem")
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
+
 module "lb-http" {
   source  = "GoogleCloudPlatform/lb-http/google//modules/serverless_negs"
   version = "~> 12.0"
   project = var.service_project_id
   name    = "httplbforapp"
   ssl     = true
+  ssl_certificates     = [google_compute_ssl_certificate.default.id]
   backends = {
     default = {
       protocol   = "HTTP"
-      port_name  = var.service_port_name
+      # port_name  = var.service_port_name <- not applicable when using neg
       enable_cdn = false
 
 

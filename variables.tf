@@ -1,30 +1,37 @@
 variable "db_name" {
   description = "the name of the db"
-}
-
-variable "authorized_networks" {
-  description = "networks allowed to connect to the db"
+  type        = string
 }
 
 variable "host_project_id" {
   description = "the ID of the host project"
+  type        = string
 }
 
 variable "service_project_id" {
   description = "the ID of the service project"
+  type        = string
 }
 
-variable "region" {}
+variable "region" {
+  description = "the region where all the resources should be deployed"
+  type        = string
+}
 
-variable "zone" {}
+variable "zone" {
+  description = "the zone where all the resources should be deployed"
+  type        = string
+}
 
-variable "lb_ip_range" {}
+variable "lb_ip_range" {
+  description = "the ip range to be used by the load balancer"
+}
 
 variable "image" {
   description = "the image used in cloudrun"
 }
 variable "ssl_cert" {
-  description = "the id of the service account in service project"
+  description = "the ssl certificate for secure connection"
 }
 
 variable "network_name" {
@@ -32,15 +39,15 @@ variable "network_name" {
 }
 
 variable "host_ip_range" {
-  description = "host cidr range"
+  description = "the cidr range of the host network"
 }
 
 variable "service_ip_range" {
-  description = "service cidr range"
+  description = "the cidr range of the service network"
 }
 
 variable "repo_name" {
-  description = "registry repo name"
+  description = "the repository to be created in artifact registry"
 }
 
 variable "lb_name" {
@@ -48,15 +55,19 @@ variable "lb_name" {
 }
 
 variable "service_account_email" {
-  description = "service account for tasks"
+  description = "sthe service account that will create all the resources"
 }
 
 variable "instance_tier" {
+  description = " the tier of the database instance"
   type        = string
-  description = " Tier of the DB Instance"
 }
 
 variable "service_port_name" {
-  description = "the name of the service port"
+  description = "the name of the service port for cloudrun"
+  type        = string
+}
 
+variable "user_password"{
+  description = "the password of the database user"
 }

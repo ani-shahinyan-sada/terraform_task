@@ -10,16 +10,15 @@ resource "google_compute_ssl_certificate" "default" {
 }
 
 module "lb-http" {
-  source  = "GoogleCloudPlatform/lb-http/google//modules/serverless_negs"
-  version = "~> 12.0"
-  project = var.service_project_id
-  name    = "httplbforapp"
-  ssl     = true
-  ssl_certificates     = [google_compute_ssl_certificate.default.id]
+  source           = "GoogleCloudPlatform/lb-http/google//modules/serverless_negs"
+  version          = "~> 12.0"
+  project          = var.service_project_id
+  name             = "httplbforapp"
+  ssl              = true
+  ssl_certificates = [google_compute_ssl_certificate.default.id]
   backends = {
     default = {
-      protocol   = "HTTP"
-      # port_name  = var.service_port_name <- not applicable when using neg
+      protocol = "HTTP"
       enable_cdn = false
 
 

@@ -8,7 +8,6 @@ module "firewall_rules" {
     direction          = "INGRESS"
     priority           = 1000
     destination_ranges = var.host_ip_range
-    #source_ranges           = ["0.0.0.0/0"]
     source_service_accounts = [var.service_account_email]
     allow = [{
       protocol = "tcp"

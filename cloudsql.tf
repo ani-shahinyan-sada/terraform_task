@@ -9,11 +9,19 @@ module "mysql-db" {
   tier                = var.instance_tier
   deletion_protection = false
 
+
+  db_name      = "default"
+  db_charset   = "utf8"
+  db_collation = "utf8_general_ci"
+  
+  user_name     = "default"
+  user_password = var.user_password
+  user_host     = "%" 
+
   ip_configuration = {
     ipv4_enabled       = false
     private_network    = module.vpc.network_self_link
     ssl_mode           = "ALLOW_UNENCRYPTED_AND_ENCRYPTED"
-    # allocated_ip_range = google_compute_global_address.private_ip_address.name
   }
   depends_on = [module.private_service_connect]
 

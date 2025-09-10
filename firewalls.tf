@@ -4,14 +4,14 @@ module "firewall_rules" {
   network_name = module.vpc.network_name
 
   rules = [{
-    name               = "allow-tcp-ingress"
-    direction          = "INGRESS"
-    priority           = 1000
-    destination_ranges = var.host_ip_range
+    name                    = "allow-tcp-ingress"
+    direction               = "INGRESS"
+    priority                = 1000
+    destination_ranges      = var.host_ip_range
     source_service_accounts = [var.service_account_email]
     allow = [{
       protocol = "tcp"
-      ports    = [22 , 3306]
+      ports    = [22, 3306]
     }]
     deny = []
     log_config = {

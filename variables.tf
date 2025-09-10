@@ -68,6 +68,6 @@ variable "service_port_name" {
   type        = string
 }
 
-variable "user_password"{
+variable "user_password" {
   description = "the password of the database user"
 }

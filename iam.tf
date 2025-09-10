@@ -21,3 +21,10 @@ resource "google_project_iam_member" "google_apis_service_agent_editor" {
   role    = "roles/editor"
   member  = "serviceAccount:921523404452@cloudservices.gserviceaccount.com"
 }
+
+
+resource "google_project_iam_member" "cloud_run_service_agent_network_user" {
+  project = var.host_project_id
+  role    = "roles/compute.networkUser"
+  member  = "serviceAccount:service-921523404452@serverless-robot-prod.iam.gserviceaccount.com"
+}

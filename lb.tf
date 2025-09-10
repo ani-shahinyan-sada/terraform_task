@@ -18,7 +18,7 @@ module "lb-http" {
   ssl_certificates = [google_compute_ssl_certificate.default.id]
   backends = {
     default = {
-      protocol = "HTTP"
+      protocol   = "HTTP"
       enable_cdn = false
 
 

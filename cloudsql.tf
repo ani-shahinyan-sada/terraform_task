@@ -7,21 +7,21 @@ module "mysql-db" {
   zone                = var.zone
   region              = var.region
   tier                = var.instance_tier
-  deletion_protection = false
+  deletion_protection = true
 
 
   db_name      = "default"
   db_charset   = "utf8"
-  db_collation = "utf8_general_ci"
-  
+  db_collation = "default"
+
   user_name     = "default"
   user_password = var.user_password
-  user_host     = "%" 
+  user_host     = "%"
 
   ip_configuration = {
-    ipv4_enabled       = false
-    private_network    = module.vpc.network_self_link
-    ssl_mode           = "ALLOW_UNENCRYPTED_AND_ENCRYPTED"
+    ipv4_enabled    = false
+    private_network = module.vpc.network_self_link
+    ssl_mode        = "ALLOW_UNENCRYPTED_AND_ENCRYPTED"
   }
   depends_on = [module.private_service_connect]
 

@@ -10,11 +10,13 @@ module "vpc" {
   network_name = var.network_name
   subnets = [
     {
+      #this is the host vpc subnet
       subnet_name   = "subnet-01"
       subnet_ip     = var.host_ip_range
       subnet_region = var.region
     },
     {
+      #this is the service vpc subnet
       subnet_name   = "subnet-02"
       subnet_ip     = var.service_ip_range
       subnet_region = var.region
